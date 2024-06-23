@@ -1,4 +1,7 @@
 /* App.css */
+/* src/index.css or src/App.css */
+@import './styled/tailwind.css';
+
 .app {
   display: flex;
   flex-wrap: wrap;

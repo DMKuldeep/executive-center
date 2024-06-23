@@ -2,24 +2,27 @@
 
 .bar-graph {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end; /* Align bars at the bottom */
+    flex-direction: column; /* Display bars horizontally */
+    align-items: center; /* Align bars in the center */
+    justify-content: space-between; /* Space bars evenly */
     height: 300px; /* Set a fixed height or adjust dynamically */
     border: 1px solid #ccc;
     margin: 20px;
 }
 
 .bar {
-    width: calc(100% / var(--num-bars, 1));
+    height: calc(100% / var(--num-bars, 1));
+    width: 0; /* Initial width, will be dynamically set */
     background-color: #007bff;
-    text-align: center;
-    transition: height 0.3s ease-in-out;
+    text-align: right; /* Align text to the right */
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
     position: relative;
 }
 
 .bar-label {
     position: absolute;
-    top: -1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    left: -1.5rem; /* Position label to the left of the bar */
+    top: 50%;
+    transform: translateY(-50%);
 }
