@@ -1,28 +1,22 @@
 import React from 'react';
-import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+import { Line } from 'react-chartjs-2';
+import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 
-ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
+// Register necessary components
+ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
-
-const VerticalBarChart4 = () => {
+const SingleLineChart = () => {
   const data = {
-    labels: ['Category 1', 'Category 2'],
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
     datasets: [
       {
-        label: 'Metric 1',
-        data: [45, 55],
-        backgroundColor: 'rgba(255, 206, 86, 0.2)',
-        borderColor: 'rgba(255, 206, 86, 1)',
-        borderWidth: 0.5,
-      },
-      {
-        label: 'Metric 2',
-        data: [35, 75],
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        label: 'Sales 2023',
+        data: [30, 20, 50, 60, 70, 90],
+        fill: false,
         borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 0.5,
+        tension: 0.1,
       },
+    
     ],
   };
 
@@ -30,44 +24,44 @@ const VerticalBarChart4 = () => {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       title: {
-        display: true,
-        text: 'Comparison of Metrics for Two Categories',
+        display: false,
+        text: 'Monthly Sales Data for 2023 and 2024',
       },
     },
     scales: {
       x: {
-        display: true,
+        display: false,
         title: {
-          display: true,
-          text: 'Categories',
+          display: false,
+          text: 'Months',
         },
       },
       y: {
         display: true,
         title: {
-          display: true,
-          text: 'Values',
+          display: false,
+          text: 'Sales',
         },
         beginAtZero: true,
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
-};
-
-const App = () => {
   return (
-    <div className="app">
-      
-      <div className="card">
-        <VerticalBarChart4 />
+    <div className="flex-container grid grid-cols-3">
+      <div className="col-span-1">
+        <h2 className='text-[20px] font-bold'>Volume</h2>
+        <h3>Total: 450</h3>
+        <h3>AVG: 75</h3>
+      </div>
+      <div className="col-span-2">
+        <Line data={data} options={options} height={'auto'} width={'auto'} />
       </div>
     </div>
   );
 };
 
-export default App;
+export default SingleLineChart;

@@ -5,8 +5,6 @@ import { Chart as ChartJS, BarElement, CategoryScale, LinearScale, Title, Toolti
 // Register necessary components
 ChartJS.register(BarElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
-
-
 const BarGraph = () => {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
@@ -16,13 +14,6 @@ const BarGraph = () => {
         data: [30, 20, 50, 60, 70, 90],
         backgroundColor: 'rgba(75, 192, 192, 0.2)',
         borderColor: 'rgba(75, 192, 192, 1)',
-        borderWidth: 0.5,
-      },
-      {
-        label: 'Sales 2024',
-        data: [40, 30, 60, 70, 80, 100],
-        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-        borderColor: 'rgba(153, 102, 255, 1)',
         borderWidth: 0.5,
       },
     ],
@@ -36,12 +27,12 @@ const BarGraph = () => {
       },
       title: {
         display: true,
-        text: 'Monthly Sales Data for 2023 and 2024',
+        text: 'Monthly Sales Data',
       },
     },
     scales: {
       x: {
-        display: true,
+        display: false, // Hide x-axis labels
         title: {
           display: true,
           text: 'Months',
@@ -60,12 +51,12 @@ const BarGraph = () => {
 
   return (
     <div className="flex-container">
-      <div className="headings">
+      <div className="headings" style={{ marginRight: '20px' }}>
         <h2>Volume</h2>
         <h3>Total: 450</h3>
         <h3>AVG: 75</h3>
       </div>
-      <div className="chart">
+      <div className="chart" style={{ flexGrow: 1 }}>
         <Bar data={data} options={options} />
       </div>
     </div>

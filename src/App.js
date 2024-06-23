@@ -11,9 +11,15 @@ function App() {
 
   return (
     <div className="App">
+      <div className="w-[300px] ">
       <DoubleLineChart />
-      {/* <SingleLineChart/> */}
+      </div>
+      <div className="w-[300px] "><SingleLineChart/></div>
+      
+      <div className="w-[300px] ">
+
       <BarGraph/>
+      </div>
       {/* <SimpleLineChart/> */}
     </div>
   );

@@ -30,25 +30,25 @@ const DoubleLineChart = () => {
     responsive: true,
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       title: {
-        display: true,
+        display: false,
         text: 'Monthly Sales Data for 2023 and 2024',
       },
     },
     scales: {
       x: {
-        display: true,
+        display: false,
         title: {
-          display: true,
+          display: false,
           text: 'Months',
         },
       },
       y: {
         display: true,
         title: {
-          display: true,
+          display: false,
           text: 'Sales',
         },
         beginAtZero: true,
@@ -57,14 +57,14 @@ const DoubleLineChart = () => {
   };
 
   return (
-    <div className="flex-container">
-      <div className="headings">
-        <h2>Volume</h2>
+    <div className="flex-container grid grid-cols-3">
+      <div className="col-span-1">
+        <h2 className='text-[20px] font-bold'>Volume</h2>
         <h3>Total: 450</h3>
         <h3>AVG: 75</h3>
       </div>
-      <div className="chart">
-        <Line data={data} options={options} />
+      <div className="col-span-2">
+        <Line data={data} options={options} height={'auto'} width={'auto'} />
       </div>
     </div>
   );
