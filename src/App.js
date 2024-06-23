@@ -1,6 +1,6 @@
 
 import React from "react";
-import SimpleLineChart from "./componenet/SimpleLineChart";
+// import SimpleLineChart from "./componenet/SimpleLineChart";
 import "./App.css";
 import DoubleLineChart from "./componenet/DoubleLineChart";
 import SingleLineChart from "./componenet/SingleLineChart";

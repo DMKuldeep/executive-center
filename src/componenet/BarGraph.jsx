@@ -21,42 +21,42 @@ const BarGraph = () => {
 
   const options = {
     responsive: true,
+    indexAxis: 'y', // Display bars horizontally
     plugins: {
       legend: {
-        display: true,
+        display: false,
       },
       title: {
-        display: true,
+        display: false,
         text: 'Monthly Sales Data',
       },
     },
     scales: {
       x: {
-        display: false, // Hide x-axis labels
+        display: true, // Show x-axis labels
         title: {
-          display: true,
-          text: 'Months',
-        },
-      },
-      y: {
-        display: true,
-        title: {
-          display: true,
+          display: false,
           text: 'Sales',
         },
         beginAtZero: true,
+      },
+      y: {
+        display: true, // Hide y-axis labels
+        title: {
+          display: false,
+          text: 'Months',
+        },
       },
     },
   };
 
   return (
-    <div className="flex-container">
-      <div className="headings" style={{ marginRight: '20px' }}>
-        <h2>Volume</h2>
-        <h3>Total: 450</h3>
-        <h3>AVG: 75</h3>
+    <div className="grid grid-cols-3">
+      <div className="col-span-3" style={{ marginRight: '20px' }}>
+      <h2 className='text-[20px] font-bold'>Volume</h2>
+        
       </div>
-      <div className="chart" style={{ flexGrow: 1 }}>
+      <div className="col-span-3" style={{ flexGrow: 1 }}>
         <Bar data={data} options={options} />
       </div>
     </div>
